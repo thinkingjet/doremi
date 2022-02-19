@@ -51,6 +51,16 @@ class App extends React.Component {
       this.setState({
         currentInstrument: newInstrument
       })
+
+      //toggle tick
+      if (name=="xylophone") {
+        document.getElementById("guitarCheck").style.display = "none";
+        document.getElementById("pianoCheck").style.display = "inline-block";
+      }
+      else if (name=="guitar"){
+        document.getElementById("pianoCheck").style.display = "none";
+        document.getElementById("guitarCheck").style.display = "inline-block";
+      }
     }
 
     selectMode(boo) {
@@ -59,8 +69,12 @@ class App extends React.Component {
       })
       if(boo === false) {
         this.state.page = 1;
+        document.getElementById("freeplayCheck").style.display = "inline-block";
+        document.getElementById("songCheck").style.display = "none";
       } else {
         this.state.page = 3;
+        document.getElementById("freeplayCheck").style.display = "none";
+        document.getElementById("songCheck").style.display = "inline-block";
       }
 
     }
@@ -171,8 +185,14 @@ class App extends React.Component {
               </h2>
               
               <div className="dropdown-container">
-                <button onClick={() => this.selectInstrument("xylophone")}>Piano</button>
-                <button onClick={() => this.selectInstrument("guitar")}>Guitar</button>
+                <div>
+                  <button onClick={() => this.selectInstrument("xylophone")}>Piano</button>
+                  <i id="pianoCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <button onClick={() => this.selectInstrument("guitar")}>Guitar</button>
+                  <i id="guitarCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
               </div>
             </div>
 
@@ -182,8 +202,14 @@ class App extends React.Component {
                 Gamemode
               </h2>
               <div className="dropdown-container">    
-                <button onClick={() => this.selectMode(false)}>Freeplay</button>
-                <button onClick={() => this.selectMode(true)}>Song Selections</button>
+                <div>
+                  <button onClick={() => this.selectMode(false)}>Freeplay</button>
+                  <i id="freeplayCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <button onClick={() => this.selectMode(true)}>Song Selections</button>
+                  <i id="songCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
               </div>
             </div>
           </div> 
