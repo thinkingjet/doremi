@@ -2,7 +2,7 @@
   "name": "JazzTopia",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Oliver-Redeyoff.github.io/JazzTopia",
+  "homepage": "https://google.com",
   "dependencies": {
     "@tensorflow-models/posenet": "^2.0.0",
     "@tensorflow/tfjs": "^1.0.1",
