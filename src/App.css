@@ -1,31 +1,36 @@
 body {
-  background-color: rgb(80, 80, 80);
-  font-family: 'arial';
+  height: 100vh;
+  background: radial-gradient(83.24% 245.86% at 17.36% 29.74%, rgba(0, 0, 0, 0.42) 0%,
+   rgba(0, 0, 0, 0) 100%), linear-gradient(108.48deg, #312F4E 0.33%, 
+   rgba(85, 72, 145, 0.9) 29.05%, rgba(137, 56, 165, 0.69) 67.27%,
+   rgba(230, 59, 255, 0.62) 100%);
 }
 
 .header {
-  height: 60px;
-  background-color: rgb(116, 116, 116);
+  color: white;
+  padding-left: 10px;
+  text-shadow: 0 0 10px #fff, 0 0 30px #ff94b8, 0 0 40px #ff94b8;
 }
 
 .header img {
   display: inline-block;
-  height: 40px;
-  margin: 10px 20px 20px 10px;
+  height: 55px;
+  margin: 20px 10px 10px 10px;
 }
 
 .header h1 {
-  display: inline-block;
-  font-size: 20px;
-  margin-top: 17px;
   vertical-align: top;
+  display: inline-block;
+  font-size: 30px;
+  margin-top: 21px;
+  border: solid 2px white;
+  padding: 8px;
+  font-family: Mexcellent;
 }
 
 .content {
   width: 70%;
   margin-left: 15%;
-  /* border: 1px solid black; */
-  padding: 30px 0px 50px 0px;
 }
 
 .content .videoLoading {
@@ -36,6 +41,18 @@ body {
   border-radius: 5px;
 }
 
+.webcam {
+  max-height: 550px;
+  margin-top: 2em;
+  background: white;
+  height: 550px;
+}
+
+.main-content {
+  width: 80%;
+  height: 100vh;
+}
+
 .cameraViewParent {
   display: flex;
   justify-content: center;
@@ -44,6 +61,14 @@ body {
 
 .cameraView {
   display: inline-block;
+}
+
+.cameraView h1 {
+  /* REMOVE */ display: none;
+  text-align: center;
+  color:white;
+  padding-top: 30vh;
+  text-shadow: 0 0 10px #be5fff, 0 0 30px #ffaac6, 0 0 40px #ff94b8;
 }
 
 .menu {
@@ -75,9 +100,7 @@ body {
 
 
 .divider{
-    width:5px;
-    height:5px;
-    height:auto;
+    width:20px;
     display:inline-block;
 }
 
@@ -87,15 +110,31 @@ body {
 
 .songButton {
   display: inline-block;
-  color: darkorchid;
-  padding-top:5px;
-  padding-bottom:5px;
-  font-size: 12px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 3px;
+  font-family: Mexcellent;
 }
 
 .songButtons {
   padding-left:30px;
   text-align:center;
+  margin-top: 20px;
+}
+
+.border-neon {
+  background-color: transparent;
+  border: 2px solid pink;
+  color: pink;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.border-neon:hover, .border-neon:focus {
+  -webkit-box-shadow: inset 0px 0px 8px 3px #ff94b8;
+  box-shadow: 0px 0px 10px 3px #ff94b8, inset 0px 0px 10px 3px #ff94b8;
+  border-color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 30px #ff94b8, 0 0 40px #ff94b8;
 }
 
 .settingsText {
@@ -105,4 +144,104 @@ body {
 
 .settings {
   display:block;
+}
+
+/*SIDE NAVBAR*/
+.sidenav {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  overflow-x: hidden;
+  font-family: Flottflott;
+}
+
+.sidenavBg {
+  height: 100%;
+  width: 100%;
+  background-color: #0000006b;
+  z-index: -100;
+  position: absolute;
+}
+
+.sidenav * {
+  padding-left: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.sidenav .title {
+  padding: 0px;
+}
+
+.sidenav .title i {
+  font-size: 35px;
+}
+
+.sidenav h1 {
+  margin-bottom: 0px;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.sidenav h2 {
+  margin-bottom: 0px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav h2, button {
+  padding: 8px 8px 6px 36px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  text-align: left;
+  outline: none;
+}
+
+.sidenav button {
+  cursor: pointer;
+}
+
+.sidenav h2 {
+  padding-left: 15px;
+  display: inline-block;
+}
+
+.sidenav .option {
+  padding-top: 40px;
+  padding-left: 0px;
+}
+
+/* On mouse-over */
+.sidenav button:hover, .dropdown-btn:hover {
+  color: #ffbef6;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* FONTS */
+@font-face {
+  font-family: Mexcellent;
+  src: url("./Assets/Fonts/mexcellent.regular.otf") format("opentype");
+}
+@font-face {
+  font-family: Flottflott;
+  src: url("./Assets/Fonts/flottflott.regular.ttf") format("opentype");
 }
