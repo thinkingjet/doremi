@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans:wght@300&family=Playfair+Display&family=Ubuntu&display=swap');
+
 body {
   height: 100vh;
   background: radial-gradient(83.24% 245.86% at 17.36% 29.74%, rgba(0, 0, 0, 0.42) 0%,
    rgba(0, 0, 0, 0) 100%), linear-gradient(108.48deg, #312F4E 0.33%, 
    rgba(85, 72, 145, 0.9) 29.05%, rgba(137, 56, 165, 0.69) 67.27%,
    rgba(230, 59, 255, 0.62) 100%);
+   font-family: 'Ubuntu', sans-serif;
 }
 
 .header {
@@ -44,8 +47,6 @@ body {
 .webcam {
   max-height: 550px;
   margin-top: 2em;
-  background: white;
-  height: 550px;
 }
 
 .main-content {
@@ -64,7 +65,6 @@ body {
 }
 
 .cameraView h1 {
-  /* REMOVE */ display: none;
   text-align: center;
   color:white;
   padding-top: 30vh;
@@ -113,7 +113,6 @@ body {
   font-size: 20px;
   padding: 10px;
   border-radius: 3px;
-  font-family: Mexcellent;
 }
 
 .songButtons {
@@ -156,7 +155,6 @@ body {
   right: 0;
   background-color: transparent;
   overflow-x: hidden;
-  font-family: Flottflott;
 }
 
 .sidenavBg {
@@ -195,7 +193,6 @@ body {
 .sidenav h2, button {
   padding: 8px 8px 6px 36px;
   text-decoration: none;
-  font-size: 20px;
   color: white;
   display: block;
   border: none;
@@ -206,16 +203,23 @@ body {
 
 .sidenav button {
   cursor: pointer;
+  font-size: 20px;
+  font-family: Ubuntu, sans-serif;
 }
 
 .sidenav h2 {
   padding-left: 15px;
   display: inline-block;
+  font-size: 25px;
 }
 
 .sidenav .option {
   padding-top: 40px;
   padding-left: 0px;
+}
+
+.sidenav .option i {
+  font-size: 20px;
 }
 
 /* On mouse-over */
@@ -241,7 +245,4 @@ body {
   font-family: Mexcellent;
   src: url("./Assets/Fonts/mexcellent.regular.otf") format("opentype");
 }
-@font-face {
-  font-family: Flottflott;
-  src: url("./Assets/Fonts/flottflott.regular.ttf") format("opentype");
-}
+
