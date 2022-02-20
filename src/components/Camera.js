@@ -388,7 +388,7 @@ class PoseNet extends Component {
       <div>
         <div>
           { this.state.loading ?
-              <h1>LOADING</h1> :
+              <h1>LOADING...</h1> :
               <div>
               { this.props.isHero ? <h1 style={{ margin: 0}}>score: {this.state.score}</h1> : <></>}
               </div>}

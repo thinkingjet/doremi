@@ -51,6 +51,16 @@ class App extends React.Component {
       this.setState({
         currentInstrument: newInstrument
       })
+
+      //toggle tick
+      if (name=="xylophone") {
+        document.getElementById("guitarCheck").style.display = "none";
+        document.getElementById("pianoCheck").style.display = "inline-block";
+      }
+      else if (name=="guitar"){
+        document.getElementById("pianoCheck").style.display = "none";
+        document.getElementById("guitarCheck").style.display = "inline-block";
+      }
     }
 
     selectMode(boo) {
@@ -59,8 +69,12 @@ class App extends React.Component {
       })
       if(boo === false) {
         this.state.page = 1;
+        document.getElementById("freeplayCheck").style.display = "inline-block";
+        document.getElementById("songCheck").style.display = "none";
       } else {
         this.state.page = 3;
+        document.getElementById("freeplayCheck").style.display = "none";
+        document.getElementById("songCheck").style.display = "inline-block";
       }
 
     }
@@ -85,30 +99,12 @@ class App extends React.Component {
         let pageHtml;
         if (this.state.page == 1) {
           pageHtml =
-          <div>
+
+          <div>           
             <div className='cameraViewParent'>
               <div className='cameraView'>
                 <Camera currentInstrument={this.state.currentInstrument} isHero={this.state.isHero} songId={this.state.songID} modalName={this.state.modalName}/>
               </div>
-            </div>
-
-            <div className="menu">
-
-              <center>
-                <button className="instrumentButtons">
-                  <img src={piano} alt="Xylophone Button" className="instrumentButtons" onClick={() => this.selectInstrument("xylophone")}/>
-                </button>
-                <button className="instrumentButtons">
-                  <img src={guitarbutton} alt="Guitar Button" className="instrumentButtons" onClick={() => this.selectInstrument("guitar")}/>
-                </button>
-              </center>
-
-              <center>
-                <button className="modeButtons" onClick={() => this.selectMode(false)}>Freeplay</button>
-                <div className="divider"/>
-                <button className="modeButtons" onClick={() => this.selectMode(true)}>Gamemode</button>
-              </center>
-
             </div>
           </div>;
         }
@@ -163,46 +159,75 @@ class App extends React.Component {
             </div>
           </div>
             <div className='songButtons'>
-              <button className='songButton' onClick={() => this.selectSong(0)}>Shrek Theme</button>
+              <button className='border-neon songButton' onClick={() => this.selectSong(0)}>Shrek Theme</button>
               <div className="divider"></div>
-              <button className='songButton' onClick={() => this.selectSong(1)}>Despacito</button>
+              <button className='border-neon songButton' onClick={() => this.selectSong(1)}>Despacito</button>
               <div className="divider"></div>
-              <button className='songButton' onClick={() => this.selectSong(2)}>Hotel California</button>
+              <button className='border-neon songButton' onClick={() => this.selectSong(2)}>Hotel California</button>
               <div className="divider"></div>
-              <button className='songButton' onClick={() => this.selectSong(3)}>Never Gonna Give You Up</button>
+              <button className='border-neon songButton' onClick={() => this.selectSong(3)}>Never Gonna Give You Up</button>
             </div>
-
-            <div className="menu">
-              <center>
-                <button className="instrumentButtons">
-                  <img src={piano} alt="Xylophone Button" className="instrumentButtons" onClick={() => this.selectInstrument("xylophone")}/>
-                </button>
-
-                <button className="instrumentButtons">
-                  <img src={guitarbutton} alt="Guitar Button" className="instrumentButtons" onClick={() => this.selectInstrument("guitar")}/>
-                </button>
-              </center>
-
-              <center>
-                <button className="modeButtons" onClick={() => this.selectMode(false)}>Freeplay</button>
-                <div className="divider"/>
-                <button className="modeButtons" onClick={() => this.selectMode(true)}>Gamemode</button>
-              </center>
-            </div>
-
           </div>;
         }
 
+        //SIDEBAR
+        let sideBar =
+          <div className="sidenav">
+            <div className="sidenavBg"></div>
+            <div className="title">
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              <h1>Settings</h1>
+            </div>
+            <div className="option">
+              <i class="fa fa-music" aria-hidden="true"></i>
+              <h2>
+                Instruments
+              </h2>
+              
+              <div className="dropdown-container">
+                <div>
+                  <button onClick={() => this.selectInstrument("xylophone")}>Piano</button>
+                  <i id="pianoCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <button onClick={() => this.selectInstrument("guitar")}>Guitar</button>
+                  <i id="guitarCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+
+            <div className="option">
+              <i class="fa fa-gamepad" aria-hidden="true"></i>
+              <h2>
+                Gamemode
+              </h2>
+              <div className="dropdown-container">    
+                <div>
+                  <button onClick={() => this.selectMode(false)}>Freeplay</button>
+                  <i id="freeplayCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <button onClick={() => this.selectMode(true)}>Song Selections</button>
+                  <i id="songCheck" class="fa fa-check" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div> 
+
         return (
             <div>
-              <div className="header">
-                <img src={icon} alt="Icon"/>
-                <h1>JazzTopia</h1>
+              <div className="sideBar">
+                {sideBar}
               </div>
-              <div className="content">
-                {pageHtml}
+              <div className="main-content">
+                <div className="header">
+                  <img src={icon} alt="Icon"/>
+                  <h1>JazzTopia</h1>
+                </div>
+                <div className="content">
+                  {pageHtml}
+                </div>
               </div>
-
             </div>
         );
       }
